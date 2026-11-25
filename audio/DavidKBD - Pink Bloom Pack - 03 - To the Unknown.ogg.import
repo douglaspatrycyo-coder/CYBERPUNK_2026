@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://chd8ru7nixem7"
+path="res://.godot/imported/DavidKBD - Pink Bloom Pack - 03 - To the Unknown.ogg-823caedb6061362b0086cea16de581e7.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/DavidKBD - Pink Bloom Pack - 03 - To the Unknown.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Pink Bloom Pack - 03 - To the Unknown.ogg-823caedb6061362b0086cea16de581e7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
