@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bpsrqejh3bjaj"]
+
+[ext_resource type="Texture2D" uid="uid://chvay74cgyb0e" path="res://audio/img/ui x3.png" id="1_37p78"]
+[ext_resource type="Script" uid="uid://cigtdkorvtraj" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="Texture2D" uid="uid://303a6qm31w5v" path="res://img/00(1).png" id="3_8sq4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86ap7"]
+atlas = ExtResource("1_37p78")
+region = Rect2(9, 24, 78, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8imwq"]
+atlas = ExtResource("1_37p78")
+region = Rect2(9, 48, 78, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(0, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2258"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(31, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xsix"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(62, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftc2"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(93, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61f8s"]
+atlas = ExtResource("3_8sq4i")
+region = Rect2(124, 0, 31, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86ap7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_640wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2258")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xsix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rftc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61f8s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer" unique_id=1006460686]
+script = ExtResource("1_64ctp")
+
+[node name="BarraJogador" type="TextureProgressBar" parent="." unique_id=1007650054]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 86.0
+offset_bottom = 48.0
+scale = Vector2(0.5, 0.5)
+step = 0.01
+texture_under = SubResource("AtlasTexture_86ap7")
+texture_progress = SubResource("AtlasTexture_8imwq")
+
+[node name="BarraBoss" type="TextureProgressBar" parent="." unique_id=2056117198]
+offset_left = 260.0
+offset_top = 8.0
+offset_right = 338.0
+offset_bottom = 48.0
+scale = Vector2(0.667, 0.667)
+step = 0.01
+texture_under = SubResource("AtlasTexture_86ap7")
+texture_progress = SubResource("AtlasTexture_8imwq")
+
+[node name="ContadorEstrelas" type="Node2D" parent="." unique_id=1139076310]
+position = Vector2(8, 18)
+
+[node name="IconeEstrela" type="AnimatedSprite2D" parent="ContadorEstrelas" unique_id=1135629765]
+texture_filter = 1
+position = Vector2(6, 6)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_86ap7")
+autoplay = "default"
+frame = 4
+frame_progress = 0.47240683
+flip_h = true
+
+[node name="LabelEstrelas" type="Label" parent="ContadorEstrelas" unique_id=591177829]
+texture_filter = 1
+offset_left = 14.0
+offset_right = 16.0
+offset_bottom = 23.0
+scale = Vector2(0.6, 0.6)

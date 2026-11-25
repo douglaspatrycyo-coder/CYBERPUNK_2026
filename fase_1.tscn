@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dsamp1gxs2mcl"]
+
+[ext_resource type="Texture2D" uid="uid://c7o0fuevpdcc7" path="res://img/cyberpunk-corridor-files/fase_1.png" id="1_5s2kv"]
+[ext_resource type="Script" uid="uid://da0jy0rupqruv" path="res://fase_1.gd" id="1_hffw0"]
+[ext_resource type="PackedScene" uid="uid://d2c3ri6dvq5xj" path="res://player.tscn" id="2_urf38"]
+[ext_resource type="AudioStream" uid="uid://d4gpy7ahuxcsh" path="res://audio/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg" id="3_eb6rn"]
+[ext_resource type="PackedScene" uid="uid://bpsrqejh3bjaj" path="res://hud.tscn" id="4_ny45v"]
+[ext_resource type="PackedScene" uid="uid://bh7ske7qleat0" path="res://boss.tscn" id="5_eb6rn"]
+[ext_resource type="Script" uid="uid://cn1kuc5y18ber" path="res://gatilho_luta.gd" id="6_hffw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mue71"]
+size = Vector2(1248, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl4y6"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l47ui"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11vnt"]
+size = Vector2(32, 176)
+
+[node name="Fase1" type="Node2D" unique_id=228624440]
+script = ExtResource("1_hffw0")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=435130067]
+texture = ExtResource("1_5s2kv")
+centered = false
+
+[node name="Sprite2D" type="StaticBody2D" parent="." unique_id=234525183]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=2074969058]
+position = Vector2(624, 168)
+shape = SubResource("RectangleShape2D_mue71")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D" unique_id=1475524272]
+position = Vector2(-8, 88)
+shape = SubResource("RectangleShape2D_pl4y6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D" unique_id=1719345994]
+position = Vector2(1256, 88)
+shape = SubResource("RectangleShape2D_l47ui")
+
+[node name="Player" parent="." unique_id=269254158 instance=ExtResource("2_urf38")]
+position = Vector2(63, 127)
+atraso_som_carga = 0.3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1921902438]
+stream = ExtResource("3_eb6rn")
+volume_db = -10.0
+autoplay = true
+
+[node name="HUD" parent="." unique_id=1006460686 instance=ExtResource("4_ny45v")]
+
+[node name="Boss" parent="." unique_id=387210055 instance=ExtResource("5_eb6rn")]
+position = Vector2(1080, 100)
+
+[node name="GatilhoLuta" type="Area2D" parent="." unique_id=170633627 node_paths=PackedStringArray("boss")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_hffw0")
+boss = NodePath("../Boss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GatilhoLuta" unique_id=817223066]
+position = Vector2(800, 88)
+shape = SubResource("RectangleShape2D_11vnt")

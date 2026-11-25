@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b1f5yqytokpxt"]
+
+[ext_resource type="Script" uid="uid://bul5t37kjkrpn" path="res://estrela.gd" id="1_urh1h"]
+[ext_resource type="Texture2D" uid="uid://303a6qm31w5v" path="res://img/00(1).png" id="2_7es4r"]
+[ext_resource type="AudioStream" uid="uid://bsxenr356wp58" path="res://audio/coin_collect.wav" id="3_7es4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttk8k"]
+atlas = ExtResource("2_7es4r")
+region = Rect2(0, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg5e7"]
+atlas = ExtResource("2_7es4r")
+region = Rect2(31, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys7tt"]
+atlas = ExtResource("2_7es4r")
+region = Rect2(62, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unjj8"]
+atlas = ExtResource("2_7es4r")
+region = Rect2(93, 0, 31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u88n"]
+atlas = ExtResource("2_7es4r")
+region = Rect2(124, 0, 31, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwgi1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttk8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg5e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys7tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unjj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u88n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86ap7"]
+
+[node name="Estrela" type="Area2D" unique_id=992414253]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_urh1h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1952319747]
+sprite_frames = SubResource("SpriteFrames_rwgi1")
+frame_progress = 0.95339346
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573227835]
+shape = SubResource("RectangleShape2D_86ap7")
+
+[node name="SomEstrela" type="AudioStreamPlayer" parent="." unique_id=2045027839]
+stream = ExtResource("3_7es4r")

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://pcoqf7kmxtic"]
+
+[ext_resource type="Script" uid="uid://dnpnu6mvuemr8" path="res://tela_final.gd" id="1_y26ei"]
+[ext_resource type="AudioStream" uid="uid://cbct1hd4ql8qs" path="res://audio/aiiiiiiiiiiiiiiiiiiiiiii-estourado.mp3" id="2_yxx3c"]
+
+[sub_resource type="SystemFont" id="SystemFont_invdk"]
+font_names = PackedStringArray("Arial", "DejaVu Sans")
+disable_embedded_bitmaps = false
+
+[sub_resource type="Theme" id="Theme_14ec6"]
+default_font = SubResource("SystemFont_invdk")
+default_font_size = 12
+
+[sub_resource type="FontFile" id="FontFile_nsr7o"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+
+[node name="TelaFinal" type="Control" unique_id=597256917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_14ec6")
+script = ExtResource("1_y26ei")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=1552491017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.07058824, 0.10980392, 1)
+
+[node name="Titulo" type="Label" parent="." unique_id=1173633791]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 314.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="Creditos" type="Label" parent="." unique_id=319327812]
+custom_minimum_size = Vector2(280, 80)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 19.0
+offset_right = 316.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 2
+
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=162252509]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 155.0
+offset_right = 175.0
+offset_bottom = 175.0
+theme_override_fonts/font = SubResource("FontFile_nsr7o")
+theme_override_font_sizes/font_size = 8
+text = "Reiniciar"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1832981467]
+stream = ExtResource("2_yxx3c")
+autoplay = true

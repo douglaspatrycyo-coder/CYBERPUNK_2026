@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cmuw73ro2cpfq"]
+
+[ext_resource type="Script" uid="uid://blw32afqw03w5" path="res://tiro_boss.gd" id="1_552ua"]
+[ext_resource type="Texture2D" uid="uid://cw0lj0mxwe818" path="res://img/efeitos_golpes/fire-ball.png" id="2_t678f"]
+[ext_resource type="AudioStream" uid="uid://cp6odxjt1gtne" path="res://audio/explosion-sound-2.mp3" id="3_t678f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk1yk"]
+atlas = ExtResource("2_t678f")
+region = Rect2(0, 0, 52, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vecvd"]
+atlas = ExtResource("2_t678f")
+region = Rect2(52, 0, 52, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcvju"]
+atlas = ExtResource("2_t678f")
+region = Rect2(104, 0, 52, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11vnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk1yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vecvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcvju")
+}],
+"loop": 1,
+"name": &"voar",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg3ii"]
+size = Vector2(54, 25)
+
+[node name="TiroBoss" type="Area2D" unique_id=1332620224]
+collision_layer = 64
+collision_mask = 9
+script = ExtResource("1_552ua")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1043476127]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_11vnt")
+animation = &"voar"
+frame_progress = 0.8597418
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1953620886]
+position = Vector2(8, 0.5)
+shape = SubResource("RectangleShape2D_xg3ii")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1566367977]
+stream = ExtResource("3_t678f")
+volume_db = -10.0
